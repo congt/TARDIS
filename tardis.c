@@ -13,6 +13,7 @@
 #include <sys/syscall.h>
 #include <math.h>
 #include <stdbool.h>
+#include <string.h>
 
 #define MICROSECONDS 1000000
 #define NANOSECONDS (MICROSECONDS*1000)
@@ -163,9 +164,13 @@ int main(int argc, char *argv[], char *envp[]) {
 	
 	if(child == 0) {
 		/* child */
-		envp[0] = "LD_PRELOAD=./novdso.so"; // FIXME: Do something more sensible
+		// decide preload
+		char buffer[512] =  "LD_PRELOAD=";
+		strcat(buffer, argv[3]);
+		envp[0] = buffer;
+
 		kill(getpid(), SIGSTOP);
-		execvpe(argv[3], &argv[3], envp);
+		execvpe(argv[4], &argv[4], envp);
 		perror("execvpe"); // execvpe only returns on error
 		exit(-1);
 	}
