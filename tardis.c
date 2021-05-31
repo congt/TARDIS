@@ -1,14 +1,13 @@
 #define _GNU_SOURCE
 
+#ifdef __APPLE__
+int main(){} //not implemented yet
+#else
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <signal.h>
-#ifdef __APPLE__
-#include <sys/wait.h>
-#else
 #include <wait.h>
-#endif
 #include <time.h>
 #include <sys/ptrace.h>
 #include <elf.h>
@@ -239,3 +238,4 @@ int main(int argc, char *argv[], char *envp[]) {
 	
 	exit(EXIT_SUCCESS);
 }
+#endif
