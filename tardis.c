@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <signal.h>
+#include <sys/wait.h>
 #include <wait.h>
 #include <time.h>
 #include <sys/ptrace.h>
