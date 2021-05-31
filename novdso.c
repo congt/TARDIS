@@ -1,4 +1,8 @@
 #define _GNU_SOURCE
+
+#ifdef __APPLE__
+    //no implementation
+#else
 #include <unistd.h>
 #include <sys/syscall.h>
 
@@ -19,3 +23,4 @@ int time(void * tloc) {
 int nanosleep(const struct timespec *req, struct timespec *rem) {
         return syscall(SYS_nanosleep,req,rem);
 }
+#endif
