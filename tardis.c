@@ -196,7 +196,7 @@ int main(int argc, char *argv[], char *envp[]) {
 		pid_t pid = waitpid(-1, &status, 0);
 		if (WIFEXITED(status)) {
 			if (pid == child) {
-				WEXITSTATUS(status);
+				exit(WEXITSTATUS(status));
 			} else {
 				continue;
 			}
