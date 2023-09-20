@@ -9,6 +9,7 @@ int main(){} //not implemented yet
 #include <signal.h>
 #include <wait.h>
 #include <time.h>
+#include <linux/ptrace.h>
 #include <sys/ptrace.h>
 #include <elf.h>
 #include <sys/user.h>
