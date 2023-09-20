@@ -10,7 +10,6 @@ int main(){} //not implemented yet
 #include <wait.h>
 #include <time.h>
 #include <linux/ptrace.h>
-#include <sys/ptrace.h>
 #include <elf.h>
 #include <sys/user.h>
 #include <sys/uio.h>
